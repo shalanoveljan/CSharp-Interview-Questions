@@ -1400,10 +1400,10 @@ protected void Page\_Load(object sender, EventArgs e)
 
 yield açar sözü iterator yaratmaq üçün istifadə olunur və hər bir iterasiya addımında bir element qaytarır. yield return və yield break açar sözləri ilə istifadə olunur.
 
-csharp
 
-public static IEnumerable<int> GetNumbers()
+
 ```
+public static IEnumerable<int> GetNumbers()
 {
 
     for (int i = 0; i < 10; i++)
@@ -1427,8 +1427,8 @@ Event (Hadisə) müəyyən bir anı və ya hadisəni təmsil edir və onunla əl
 
 Delegate (Vəkil) methodların imzalarını saxlayan referansdır və metodları çağırmaq üçün istifadə olunur.
 
-csharp
 
+```
 // Delegate tanımı
 
 public delegate void Notify(string message);
@@ -1438,12 +1438,12 @@ public delegate void Notify(string message);
 public event Notify ProcessCompleted;
 
 public void StartProcess()
-```
+
 {
 
-`    `// Process tamamlanır
+  // Process tamamlanır
 
-`    `OnProcessCompleted("Process tamamlandı.");
+    OnProcessCompleted("Process tamamlandı.");
 
 }
 
@@ -1451,13 +1451,13 @@ protected virtual void OnProcessCompleted(string message)
 
 {
 
-`    `if (ProcessCompleted != null)
+    if (ProcessCompleted != null)
 
-`    `{
+   {
 
-`        `ProcessCompleted(message);
+        ProcessCompleted(message);
 
-`    `}
+    }
 
 }
 ```
@@ -1474,7 +1474,7 @@ public void OldMethod()
 
 {
 
-`    `// Köhnə method
+    // Köhnə method
 
 }
 
@@ -1482,7 +1482,7 @@ public void NewMethod()
 
 {
 
-`    `// Yeni method
+    // Yeni method
 
 }
 ```
@@ -1497,8 +1497,8 @@ dynamic tipi runtime zamanı tipləndirilir və kompilyasiya zamanı yoxlanılm�
 
 object tipi isə C#-ın baz tipi olub, bütün tipləri saxlayır və casting tələb edir.
 
-csharp
 
+```
 dynamic dynamicVariable = "Hello";
 
 Console.WriteLine(dynamicVariable.Length);
@@ -1506,6 +1506,7 @@ Console.WriteLine(dynamicVariable.Length);
 object objectVariable = "Hello";
 
 Console.WriteLine(((string)objectVariable).Length);
+```
 
 ## 59.LinkedList vs List ##
 
@@ -1547,10 +1548,9 @@ linkedList.AddLast(3);
 public ActionResult Index()
 
 {
+    ViewData["Message"] = "Hello from ViewData";
 
-`    `ViewData["Message"] = "Hello from ViewData";
-
-`    `return View();
+    return View();
 
 }
 
@@ -1560,9 +1560,9 @@ public ActionResult Index()
 
 {
 
-`    `ViewBag.Message = "Hello from ViewBag";
+    ViewBag.Message = "Hello from ViewBag";
 
-`    `return View();
+   return View();
 
 }
 
@@ -1571,20 +1571,18 @@ public ActionResult Index()
 public ActionResult Index()
 
 {
+  TempData["Message"] = "Hello from TempData";
 
-`    `TempData["Message"] = "Hello from TempData";
-
-`    `return RedirectToAction("NextAction");
+  return RedirectToAction("NextAction");
 
 }
 
 public ActionResult NextAction()
 
 {
+var message = TempData["Message"];
 
-`    `var message = TempData["Message"];
-
-`    `return View();
+return View();
 
 }
 
@@ -1602,7 +1600,7 @@ public void ShowMessage(string message)
 
 {
 
-`    `Console.WriteLine(message);
+    Console.WriteLine(message);
 
 }
 
@@ -1621,7 +1619,7 @@ public void ShowMessage1(string message)
 
 {
 
-`    `Console.WriteLine("Message 1: " + message);
+Console.WriteLine("Message 1: " + message);
 
 }
 
@@ -1629,7 +1627,7 @@ public void ShowMessage2(string message)
 
 {
 
-`    `Console.WriteLine("Message 2: " + message);
+Console.WriteLine("Message 2: " + message);
 
 }
 
@@ -1678,17 +1676,17 @@ public void ProcessSpan()
 
 {
 
-`    `int[] numbers = { 1, 2, 3, 4, 5 };
+    int[] numbers = { 1, 2, 3, 4, 5 };
 
-`    `Span<int> span = numbers;
+    Span<int> span = numbers;
 
-`    `for (int i = 0; i < span.Length; i++)
+    for (int i = 0; i < span.Length; i++)
 
-`    `{
+    {
 
-`        `Console.WriteLine(span[i]);
+        Console.WriteLine(span[i]);
 
-`    `}
+    }
 
 }
 ```
@@ -1698,23 +1696,23 @@ public async Task ProcessMemory()
 
 {
 
-`    `int[] numbers = { 1, 2, 3, 4, 5 };
+    int[] numbers = { 1, 2, 3, 4, 5 };
 
-`    `Memory<int> memory = numbers;
+    Memory<int> memory = numbers;
 
-`    `await Task.Run(() =>
+    await Task.Run(() =>
 
-`    `{
+    {
 
-`        `for (int i = 0; i < memory.Length; i++)
+        for (int i = 0; i < memory.Length; i++)
 
-`        `{
+        {
 
-`            `Console.WriteLine(memory.Span[i]);
+            Console.WriteLine(memory.Span[i]);
 
-`        `}
+        }
 
-`    `});
+    });
 
 }
 ```
@@ -1781,31 +1779,31 @@ class Program
 
 {
 
-`    `static void Main()
+   static void Main()
 
-`    `{
+    {
 
-`        `Span<int> numbers = stackalloc int[5];
+        Span<int> numbers = stackalloc int[5];
 
 
 
-`        `for (int i = 0; i < numbers.Length; i++)
+        for (int i = 0; i < numbers.Length; i++)
 
-`        `{
+        {
 
-`            `numbers[i] = i;
+            numbers[i] = i;
 
-`        `}
+        }
 
-`        `for (int i = 0; i < numbers.Length; i++)
+       for (int i = 0; i < numbers.Length; i++)
 
-`        `{
+        {
 
-`            `Console.WriteLine(numbers[i]);
+            Console.WriteLine(numbers[i]);
 
-`        `} // Burada `numbers` yaddaşı sərbəst buraxılır.
+        } // Burada `numbers` yaddaşı sərbəst buraxılır.
 
-`    `}
+     }
 
 }
 ```
