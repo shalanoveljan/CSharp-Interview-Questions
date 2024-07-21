@@ -1356,7 +1356,7 @@ if(obj == obj2)
 ```
 
 
-**1. ASP.NET Life Cycle nədir və onun növləri hansılardır?**
+## 54. ASP.NET Life Cycle nədir və onun növləri hansılardır? ##
 
 ASP.NET Life Cycle, bir ASP.NET tətbiqinin server tərəfindən işlənməsindən brauzerə cavabın göndərilməsinə qədər keçdiyi mərhələləri təsvir edir. ASP.NET Life Cycle iki əsas növə bölünür:
 
@@ -1382,40 +1382,42 @@ ASP.NET Life Cycle, bir ASP.NET tətbiqinin server tərəfindən işlənməsind�
 csharp
 
 protected void Page\_Load(object sender, EventArgs e)
-
+```
 {
 
-`    `if (!IsPostBack)
+   if (!IsPostBack)
 
-`    `{
+    {
 
-`        `// İlk dəfə yükləmə zamanı icra olunur
+     // İlk dəfə yükləmə zamanı icra olunur
 
-`    `}
+    }
 
 }
+```
 
-**2. C#-da Yield açar sözü nədir və onun istifadəsi?**
+## 55. C#-da Yield açar sözü nədir və onun istifadəsi? ##
 
 yield açar sözü iterator yaratmaq üçün istifadə olunur və hər bir iterasiya addımında bir element qaytarır. yield return və yield break açar sözləri ilə istifadə olunur.
 
 csharp
 
 public static IEnumerable<int> GetNumbers()
-
+```
 {
 
-`    `for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 10; i++)
 
-`    `{
+    {
 
-`        `yield return i;
+       yield return i;
 
-`    `}
+    }
 
 }
+```
 
-**3. Event vs Delegate**
+## 56. Event vs Delegate ##
 
 **Event nədir?**
 
@@ -1436,7 +1438,7 @@ public delegate void Notify(string message);
 public event Notify ProcessCompleted;
 
 public void StartProcess()
-
+```
 {
 
 `    `// Process tamamlanır
@@ -1458,13 +1460,14 @@ protected virtual void OnProcessCompleted(string message)
 `    `}
 
 }
+```
 
-**4. Attributes nədir?**
+## 57. Attributes nədir? ##
 
 Attributes (Atributlar), C#-da metadataları təmin etmək üçün istifadə olunur. Onlar class, method və ya property haqqında əlavə məlumatlar verə bilər.
 
 csharp
-
+```
 [Obsolete("Bu method artıq istifadədən qaldırılmışdır.")]
 
 public void OldMethod()
@@ -1482,8 +1485,9 @@ public void NewMethod()
 `    `// Yeni method
 
 }
+```
 
-**5. Dynamic vs Object**
+## 58. Dynamic vs Object ##
 
 **Dynamic nədir?**
 
@@ -1503,7 +1507,7 @@ object objectVariable = "Hello";
 
 Console.WriteLine(((string)objectVariable).Length);
 
-**6.LinkedList vs List**
+## 59.LinkedList vs List ##
 
 LinkedList və List, C#-da elementlər ardıcıllığını saxlamaq üçün istifadə olunan verilənlər strukturlarıdır. Ancaq onların daxili implementasiyaları və performans xüsusiyyətləri fərqlidir.
 
@@ -1516,7 +1520,7 @@ LinkedList və List, C#-da elementlər ardıcıllığını saxlamaq üçün isti
 **Insertion and removal (Əlavə etmə və silmə):** Hər iki strukturu seçmək konkret vəziyyətdən asılıdır. Əgər tez-tez siyahının ortasına element əlavə etmək və ya silmək lazım olarsa, LinkedList istifadə etmək daha məsləhətlidir. Əgər təsadüfi indekslərdəki elementlərə tez-tez müraciət etmək lazımdırsa, o zaman List istifadə edilməlidir.
 
 csharp
-
+```
 // LinkedList nümunəsi
 
 LinkedList<int> linkedList = new LinkedList<int>();
@@ -1526,8 +1530,8 @@ linkedList.AddLast(1);
 linkedList.AddLast(2);
 
 linkedList.AddLast(3);
-
-**7.ViewData vs ViewBag vs TempData**
+```
+## 60.ViewData vs ViewBag vs TempData ##
 
 **ViewData**, **ViewBag** və **TempData** ASP.NET MVC-də controller-lərdən view-lərə məlumat ötürmək üçün istifadə olunan texnikalardır.
 
@@ -1537,6 +1541,7 @@ linkedList.AddLast(3);
 
 **TempData** növbəti sorğu üçün lazım olan məlumatları view-ə ötürmək üçün istifadə olunur. ViewData və ViewBag yalnız cari sorğu üçün lazımlı məlumatları ötürür, lakin növbəti sorğular üçün istifadə edilmir.
 
+```
 // ViewData nümunəsi
 
 public ActionResult Index()
@@ -1583,10 +1588,12 @@ public ActionResult NextAction()
 
 }
 
-**8. What are the different types of delegates in C#?**
+```
+
+## 61. What are the different types of delegates in C#? ##
 
 **Singlecast Delegates:** Bu delegatlar uyğun imzalı tək bir metodu referans götürür. Delegate çağırıldıqda, o, referans olunan metodu çağırır.
-
+```
 // Singlecast Delegate nümunəsi
 
 public delegate void SinglecastDelegate(string message);
@@ -1602,9 +1609,10 @@ public void ShowMessage(string message)
 SinglecastDelegate del = new SinglecastDelegate(ShowMessage);
 
 del("Hello from Singlecast Delegate");
+```
 
 **Multicast Delegates:** Bu delegatlar uyğun imzalı çoxlu metodları referans götürə bilir. Delegate çağırıldıqda, referans olunan bütün metodları əlavə olunduqları qaydada çağırır. Multicast delegatlar += və ya -= operatorları ilə yaradılır.
-
+```
 // Multicast Delegate nümunəsi
 
 public delegate void MulticastDelegate(string message);
@@ -1630,9 +1638,10 @@ MulticastDelegate del = new MulticastDelegate(ShowMessage1);
 del += ShowMessage2;
 
 del("Hello from Multicast Delegate");
+```
 
 **Generic Delegates:** Bu delegatlar generik tip parametrlərindən istifadə edir və bu, onların casting və ya boxing/unboxing olmadan çoxlu tiplərlə işləməsinə imkan verir. C# üç daxili generik delegate təmin edir: **Func**, **Action** və **Predicate**.
-
+```
 // Func Generic Delegate nümunəsi
 
 Func<int, int, int> add = (x, y) => x + y;
@@ -1650,8 +1659,8 @@ print("Hello from Action Delegate");
 Predicate<int> isEven = x => x % 2 == 0;
 
 bool isEvenResult = isEven(4); // Nəticə: true
-
-**9.Nullable Type nədir və C#-da necə istifadə olunur?**
+```
+## 62.Nullable Type nədir və C#-da necə istifadə olunur? ##
 
 C#-da Nullable (null dəyər ala bilən) tiplər, dəyər tiplərinin null dəyərini qəbul etməsinə imkan verir. Bu xüsusiyyət vacibdir, çünki dəyər tipləri normal olaraq null dəyərini qəbul edə bilməzlər. Nullable tipi, dəyər tipindən sonra ? simvolu əlavə edilərək elan edilir.
 
@@ -1659,12 +1668,12 @@ Məsələn, int? int tipinə əsaslanan Nullable tiplərdən biridir. Siz int ti
 
 int? number = null;
 
-**10. Span<T> və Memory<T> nədir və necə istifadə olunur?**
+## 63. Span<T> və Memory<T> nədir və necə istifadə olunur? ##
 
 **Span<T>** və **Memory<T>** C#-da yaddaşın səmərəli idarə edilməsi üçün istifadə olunan strukturlardır.
 
 **Span<T>:** Span<T>, idarə olunan (managed) və idarə olunmayan (unmanaged) yaddaşı göstərmək üçün istifadə edilən bir strukturdur. Span<T> referans növlərindən daha səmərəli olaraq, stack-based (yığılmış) yaddaşda saxlanılır və bu, performansın yaxşılaşdırılmasına kömək edir. Span<T> yalnız metodun və ya blokun daxilində istifadə edilə bilər və metoddan kənarda istifadə edilə bilməz.
-
+```
 public void ProcessSpan()
 
 {
@@ -1682,9 +1691,9 @@ public void ProcessSpan()
 `    `}
 
 }
-
+```
 **Memory<T>:** Memory<T> isə Span<T> kimi yaddaşı idarə etmək üçün istifadə olunur, lakin heap-based (yığın) yaddaşı göstərir və metoddan kənarda istifadə edilə bilər. Memory<T> asinxron əməliyyatlarda və uzunmüddətli yaddaş idarəetməsində istifadə üçün daha uyğundur.
-
+```
 public async Task ProcessMemory()
 
 {
@@ -1708,8 +1717,9 @@ public async Task ProcessMemory()
 `    `});
 
 }
+```
 
-**11. JWT (JSON Web Token) nədir və JWT ilə kimlik doğrulama .NET platformasında necə həyata keçirilir?**
+## 64. JWT (JSON Web Token) nədir və JWT ilə kimlik doğrulama .NET platformasında necə həyata keçirilir?**
 
 JWT (JSON Web Token) açıq standartdır və JSON obyekti kimi kodlanmış məlumatları təhlükəsiz şəkildə ötürmək üçün istifadə olunur. JWT üç hissədən ibarətdir: Header, Payload və Signature. Bu hissələr məlumatların təhlükəsiz və dəyişdirilmədiyini təmin edir.
 
@@ -1755,7 +1765,7 @@ HMACSHA256(
 1. **Tokenin doğrulanması**: Server tokeni alır və onun imzasını doğrulayır.
 1. **İcazə verilməsi**: Token doğrulandısa, istifadəçinin resursa girişinə icazə verilir.
 
-**12. stackalloc nədir?**
+## 65. stackalloc nədir? ##
 
 **stackalloc** C# dilində bir açar sözdür və stack (yığım) üzərində yaddaş ayırmağa imkan verir. Bu, adətən, performansın kritik olduğu və tez-tez istifadə olunan, qısa ömürlü verilənlər üçün faydalıdır. **stackalloc** ilə ayırdığınız yaddaş avtomatik olaraq metoddan çıxıldıqda sərbəst buraxılır, beləliklə, yaddaş idarə etməsini asanlaşdırır.
 
@@ -1764,7 +1774,7 @@ HMACSHA256(
 1. Yaddaş ayırma stack-da: stackalloc yalnız stack-da yaddaş ayırır, heap-da deyil. Bu, onu çox sürətli edir, çünki stack-da yaddaş ayırma və sərbəst buraxma çox az başa gəlir.
 1. Sabit ölçülü buffer-lər: stackalloc ilə sabit ölçülü buffer-lər ayırmaq mümkündür. Bu, xüsusən də P/Invoke əməliyyatlarında və ya performansın kritik olduğu yerlərdə faydalıdır.
 1. Unsafe konteks: stackalloc istifadə etmək üçün kodu unsafe kontekstdə yazmaq lazımdır.
-
+```
 using System;
 
 class Program
@@ -1798,8 +1808,9 @@ class Program
 `    `}
 
 }
+```
 
-**13.Volatile keyword nədir?**
+## 66.Volatile keyword nədir? ##
 
 Multi-threaded proqramların yaradılması, proqram performansını artırmağın və daha effektiv tətbiqlər yaratmağın əsas yollarından biridir. Ancaq Multi-threaded proqramlaşdırmada məlumatın tutarlılığı və eyni zamanda işləmə (concurrency) idarəçiliyi olduqca mürəkkəb ola bilər. Bu baxımdan, C# dilində volatile keyword`ü, Multi-threaded proqramlaşdırmada müəyyən problemləri həll etmək üçün istifadə olunan vacib bir vasitədir. 
 
